@@ -1,31 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:turfx24/app/View/login_signup/widgets/create_forget_button.dart';
-import 'package:turfx24/app/View/login_signup/widgets/divider_or_widget.dart';
-import 'package:turfx24/app/View/login_signup/widgets/text_form_field_widget.dart';
-import 'package:turfx24/app/res/colors/background_color.dart';
-import 'package:turfx24/app/res/images/login_signup_images.dart';
-import 'package:turfx24/app/res/sizedbox.dart/sized_boxs.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/create_forget_button.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/divider_or_widget.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/text_form_field_widget.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/text_form_fields_container.dart';
+import 'package:turfx24/app/utilities/colors/background_color.dart';
+import 'package:turfx24/app/utilities/images/login_signup_images.dart';
+import 'package:turfx24/app/utilities/sizedbox.dart/sized_boxs.dart';
 
-class TextFormFieldsContainer extends StatelessWidget {
-  const TextFormFieldsContainer({super.key});
+class SignUpContainer extends StatelessWidget {
+  const SignUpContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Align(
-      alignment: Alignment.center,
+    return Center(
       child: SizedBox(
-        height: size.height * 65 / 100,
+        height: size.height * 70 / 100,
         width: size.width * 85 / 100,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBoxs.kSizedBoxHeight50,
+              SizedBoxs.kSizedBoxHeight30,
               Text(
-                "Login",
-                style: GoogleFonts.acme(color: AppColors.kWhiteColor),
+                "Signup",
+                style: GoogleFonts.acme(
+                  color: AppColors.kWhiteColor,
+                ),
               ),
               SizedBoxs.kSizedBoxHeight20,
               const TextFormFieldWidget(
@@ -37,22 +39,26 @@ class TextFormFieldsContainer extends StatelessWidget {
                 hintText: "Enter Your Password",
                 icon: Icons.lock,
               ),
-              SizedBoxs.kSizedBoxHeight10,
+              SizedBoxs.kSizedBoxHeight20,
+              const TextFormFieldWidget(
+                hintText: "Confirm Your Password",
+                icon: Icons.lock,
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: const [
                   CreateForgetButton(
-                    text: "Create account",
-                    color: AppColors.kWhiteColor,
-                  ),
-                  CreateForgetButton(
-                    text: "Forget password?",
+                    text: "Already have an account?",
                     color: AppColors.kGreenColor,
                   ),
                 ],
               ),
               Center(
-                child: elevetedButtonLogin("Login", AppColors.kWhiteColor),
+                child: const TextFormFieldsContainer().elevetedButtonLogin(
+                  "Signup",
+                  AppColors.kWhiteColor,
+                  () => Navigator.of(context).pop(),
+                ),
               ),
               SizedBoxs.kSizedBoxHeight20,
               Row(
@@ -64,9 +70,11 @@ class TextFormFieldsContainer extends StatelessWidget {
                     thickness: 1,
                     color: AppColors.kGrayColor600,
                   ),
-                  Text(
+                  const Text(
                     "or",
-                    style: GoogleFonts.acme(color: AppColors.kWhiteColor),
+                    style: TextStyle(
+                      color: AppColors.kWhiteColor,
+                    ),
                   ),
                   DividerOrWidget(
                     height: 10,
@@ -76,7 +84,6 @@ class TextFormFieldsContainer extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBoxs.kSizedBoxHeight10,
               Padding(
                 padding: const EdgeInsets.only(
                   right: 15,
@@ -111,22 +118,4 @@ class TextFormFieldsContainer extends StatelessWidget {
       ),
     );
   }
-
-  ElevatedButton elevetedButtonLogin(String text, Color color) =>
-      ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            elevation: 8,
-            backgroundColor: Colors.green,
-            padding: const EdgeInsets.only(
-              left: 153,
-              right: 153,
-              top: 20,
-              bottom: 20,
-            )),
-        onPressed: () {},
-        child: Text(
-          text,
-          style: GoogleFonts.acme(fontSize: 12, color: color),
-        ),
-      );
 }

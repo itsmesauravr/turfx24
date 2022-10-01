@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:turfx24/app/View/login_signup/signup_page.dart';
+import 'package:turfx24/app/screens/login_signup/view/login_page.dart';
+import 'package:turfx24/app/utilities/routes/app_routes.dart';
 
 main() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
     ),
   );
   runApp(const MyApp());
@@ -17,9 +18,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
+      home: const LoginPage(),
+      initialRoute: "/",
+      routes: {
+        Routes.HomePage: (context) => const LoginPage(),
+      },
     );
   }
 }

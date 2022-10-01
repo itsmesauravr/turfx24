@@ -1,33 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:turfx24/app/View/login_signup/widgets/create_forget_button.dart';
-import 'package:turfx24/app/View/login_signup/widgets/divider_or_widget.dart';
-import 'package:turfx24/app/View/login_signup/widgets/text_form_field_widget.dart';
-import 'package:turfx24/app/View/login_signup/widgets/text_form_fields_container.dart';
-import 'package:turfx24/app/res/colors/background_color.dart';
-import 'package:turfx24/app/res/images/login_signup_images.dart';
-import 'package:turfx24/app/res/sizedbox.dart/sized_boxs.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/create_forget_button.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/divider_or_widget.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/text_form_field_widget.dart';
+import 'package:turfx24/app/utilities/colors/background_color.dart';
+import 'package:turfx24/app/utilities/images/login_signup_images.dart';
+import 'package:turfx24/app/utilities/routes/app_routes.dart';
+import 'package:turfx24/app/utilities/sizedbox.dart/sized_boxs.dart';
 
-class SignUpContainer extends StatelessWidget {
-  const SignUpContainer({super.key});
+class TextFormFieldsContainer extends StatelessWidget {
+  const TextFormFieldsContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Center(
+    return Align(
+      alignment: Alignment.center,
       child: SizedBox(
-        height: size.height * 70 / 100,
+        height: size.height * 65 / 100,
         width: size.width * 85 / 100,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBoxs.kSizedBoxHeight30,
+              SizedBoxs.kSizedBoxHeight50,
               Text(
-                "Signup",
-                style: GoogleFonts.acme(
-                  color: AppColors.kWhiteColor,
-                ),
+                "Login",
+                style: GoogleFonts.acme(color: AppColors.kWhiteColor),
               ),
               SizedBoxs.kSizedBoxHeight20,
               const TextFormFieldWidget(
@@ -39,24 +38,28 @@ class SignUpContainer extends StatelessWidget {
                 hintText: "Enter Your Password",
                 icon: Icons.lock,
               ),
-              SizedBoxs.kSizedBoxHeight20,
-              const TextFormFieldWidget(
-                hintText: "Confirm Your Password",
-                icon: Icons.lock,
-              ),
+              SizedBoxs.kSizedBoxHeight10,
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   CreateForgetButton(
-                    text: "Already have an account?",
+                    text: "Create account",
+                    color: AppColors.kWhiteColor,
+                  ),
+                  CreateForgetButton(
+                    text: "Forget password?",
                     color: AppColors.kGreenColor,
                   ),
                 ],
               ),
               Center(
-                child: const TextFormFieldsContainer().elevetedButtonLogin(
-                  "Signup",
+                child: elevetedButtonLogin(
+                  "Login",
                   AppColors.kWhiteColor,
+                  () => Navigator.pushNamed(
+                    context,
+                    Routes.SignUp,
+                  ),
                 ),
               ),
               SizedBoxs.kSizedBoxHeight20,
@@ -69,11 +72,9 @@ class SignUpContainer extends StatelessWidget {
                     thickness: 1,
                     color: AppColors.kGrayColor600,
                   ),
-                  const Text(
+                  Text(
                     "or",
-                    style: TextStyle(
-                      color: AppColors.kWhiteColor,
-                    ),
+                    style: GoogleFonts.acme(color: AppColors.kWhiteColor),
                   ),
                   DividerOrWidget(
                     height: 10,
@@ -83,6 +84,7 @@ class SignUpContainer extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBoxs.kSizedBoxHeight10,
               Padding(
                 padding: const EdgeInsets.only(
                   right: 15,
@@ -117,4 +119,26 @@ class SignUpContainer extends StatelessWidget {
       ),
     );
   }
+
+  ElevatedButton elevetedButtonLogin(
+    String text,
+    Color color,
+    void Function()? onPressed,
+  ) =>
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            elevation: 8,
+            backgroundColor: Colors.green,
+            padding: const EdgeInsets.only(
+              left: 153,
+              right: 153,
+              top: 20,
+              bottom: 20,
+            )),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: GoogleFonts.acme(fontSize: 12, color: color),
+        ),
+      );
 }

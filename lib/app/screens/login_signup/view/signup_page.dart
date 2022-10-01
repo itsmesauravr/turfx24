@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:turfx24/app/View/login_signup/widgets/eclipse_position.dart';
-import 'package:turfx24/app/View/login_signup/widgets/signup_container.dart';
-import 'package:turfx24/app/res/colors/background_color.dart';
-import 'package:turfx24/app/res/images/login_signup_images.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/eclipse_position.dart';
+import 'package:turfx24/app/screens/login_signup/widgets/signup_container.dart';
+import 'package:turfx24/app/utilities/colors/background_color.dart';
+import 'package:turfx24/app/utilities/images/login_signup_images.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
