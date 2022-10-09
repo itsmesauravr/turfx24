@@ -5,4 +5,5 @@ class AppColors {
   static const kWhiteColor = Colors.white;
   static const kGreenColor = Colors.green;
   static final kGrayColor600 = Colors.grey.shade600;
+  static const kRedColor = Colors.red;
 }

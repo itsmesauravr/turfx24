@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:turfx24/app/screens/login_signup/view/login_page.dart';
-import 'package:turfx24/app/utilities/routes/app_routes.dart';
+import 'package:provider/provider.dart';
+import 'package:turfx24/app/screens/login_signup/view/login/login_page.dart';
+import 'package:turfx24/app/view_model/signup/signup_view_model.dart';
 
 main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -18,13 +19,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
-      initialRoute: "/",
-      routes: {
-        Routes.HomePage: (context) => const LoginPage(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => SignUpViewModel(),
+        ),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: LoginPage(),
+      ),
     );
   }
 }

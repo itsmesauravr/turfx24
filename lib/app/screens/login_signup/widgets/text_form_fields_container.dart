@@ -1,15 +1,21 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turfx24/app/model/login/login_model.dart';
 import 'package:turfx24/app/screens/login_signup/widgets/create_forget_button.dart';
 import 'package:turfx24/app/screens/login_signup/widgets/divider_or_widget.dart';
 import 'package:turfx24/app/screens/login_signup/widgets/text_form_field_widget.dart';
+import 'package:turfx24/app/services/login/login_api_services.dart';
 import 'package:turfx24/app/utilities/colors/background_color.dart';
 import 'package:turfx24/app/utilities/images/login_signup_images.dart';
-import 'package:turfx24/app/utilities/routes/app_routes.dart';
 import 'package:turfx24/app/utilities/sizedbox.dart/sized_boxs.dart';
 
 class TextFormFieldsContainer extends StatelessWidget {
-  const TextFormFieldsContainer({super.key});
+  TextFormFieldsContainer({super.key});
+
+  final emailTextController = TextEditingController();
+  final passWordTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +35,18 @@ class TextFormFieldsContainer extends StatelessWidget {
                 style: GoogleFonts.acme(color: AppColors.kWhiteColor),
               ),
               SizedBoxs.kSizedBoxHeight20,
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: emailTextController,
                 hintText: "Enter Your Email",
                 icon: Icons.mail,
+                obscureText: false,
               ),
               SizedBoxs.kSizedBoxHeight20,
-              const TextFormFieldWidget(
+              TextFormFieldWidget(
+                controller: passWordTextController,
                 hintText: "Enter Your Password",
                 icon: Icons.lock,
+                obscureText: true,
               ),
               SizedBoxs.kSizedBoxHeight10,
               Row(
@@ -53,13 +63,21 @@ class TextFormFieldsContainer extends StatelessWidget {
                 ],
               ),
               Center(
-                child: elevetedButtonLogin(
+                child: elevetedButton(
                   "Login",
                   AppColors.kWhiteColor,
-                  () => Navigator.pushNamed(
-                    context,
-                    Routes.SignUp,
-                  ),
+                  () {
+                    final userInputEmail = emailTextController.text.toString();
+                    final userInputPassword =
+                        passWordTextController.text.toString();
+                    log(userInputEmail);
+                    log(userInputPassword);
+                    final userData = LoginModel(
+                      userMail: userInputEmail,
+                      userPassword: userInputPassword,
+                    );
+                    loginApi(userData);
+                  },
                 ),
               ),
               SizedBoxs.kSizedBoxHeight20,
@@ -120,7 +138,7 @@ class TextFormFieldsContainer extends StatelessWidget {
     );
   }
 
-  ElevatedButton elevetedButtonLogin(
+  ElevatedButton elevetedButton(
     String text,
     Color color,
     void Function()? onPressed,
@@ -130,15 +148,15 @@ class TextFormFieldsContainer extends StatelessWidget {
             elevation: 8,
             backgroundColor: Colors.green,
             padding: const EdgeInsets.only(
-              left: 153,
-              right: 153,
+              left: 130,
+              right: 130,
               top: 20,
               bottom: 20,
             )),
         onPressed: onPressed,
         child: Text(
           text,
-          style: GoogleFonts.acme(fontSize: 12, color: color),
+          style: GoogleFonts.acme(fontSize: 16, color: color),
         ),
       );
 }

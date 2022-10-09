@@ -1,29 +1,16 @@
-class LogInModel {
+class LoginModel {
   String userMail;
   String userPassword;
 
-  LogInModel({
+  LoginModel({
     required this.userMail,
     required this.userPassword,
   });
 
-  Map<String, dynamic> toJson() => {
-        "user_mail": userMail,
-        "user_password": userPassword,
-      };
-}
-
-class LogInResponse {
-  bool status;
-  String id;
-
-  LogInResponse({
-    required this.status,
-    required this.id,
-  });
-
-  factory LogInResponse.fromJson(Map<String, dynamic> json) => LogInResponse(
-        status: json["status"],
-        id: json["id"],
-      );
+  Map<String,dynamic>toJson() {
+    return {
+      "user_mail": userMail,
+      "user_password": userPassword,
+    };
+  }
 }
