@@ -1,4 +1,4 @@
-class LoginSignUpImages {
+class Images {
   static const String topEclipse1 = "assests/images/Ellipse 1.png";
   static const String topEclipse2 = "assests/images/Ellipse 2.png";
   static const String topEclipse3 = "assests/images/Ellipse 3.png";
@@ -13,4 +13,9 @@ class LoginSignUpImages {
   static const String footBallBottom3 = "assests/images/football_logo 3.png";
   static const String footBallBottom4 = "assests/images/football_logo 4.png";
   static const String googleGLogo1 = "assests/images/google_g_logo.png";
+  static const String turfImage = "assests/images/turf.png";
+  static const String footballImage = "assests/images/football.png";
+  static const String badmintonImage = "assests/images/badminton.png";
+  static const String cricketImage = "assests/images/cricket.png";
+  static const String colockImage = "assests/images/clock.png";
 }

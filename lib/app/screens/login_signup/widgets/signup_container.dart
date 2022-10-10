@@ -6,7 +6,7 @@ import 'package:turfx24/app/screens/login_signup/widgets/divider_or_widget.dart'
 import 'package:turfx24/app/screens/login_signup/widgets/text_form_field_widget.dart';
 import 'package:turfx24/app/screens/login_signup/widgets/text_form_fields_container.dart';
 import 'package:turfx24/app/utilities/colors/background_color.dart';
-import 'package:turfx24/app/utilities/images/login_signup_images.dart';
+import 'package:turfx24/app/utilities/images/images.dart';
 import 'package:turfx24/app/utilities/sizedbox.dart/sized_boxs.dart';
 import 'package:turfx24/app/view_model/signup/signup_view_model.dart';
 
@@ -145,7 +145,7 @@ class SignUpContainer extends StatelessWidget {
                         height: 40,
                         width: 40,
                         child: Image.asset(
-                          LoginSignUpImages.googleGLogo1,
+                          Images.googleGLogo1,
                         ),
                       ),
                       TextButton(

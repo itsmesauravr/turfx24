@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:turfx24/app/screens/login_signup/view/login/login_page.dart';
+import 'package:turfx24/app/screens/view/onboarding_page.dart';
+import 'package:turfx24/app/view_model/login/login_view_model.dart';
 import 'package:turfx24/app/view_model/signup/signup_view_model.dart';
 
 main() {
@@ -24,10 +25,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => SignUpViewModel(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => LoginViewModel(),
+        ),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginPage(),
+        home: OnBoardingScreen(),
       ),
     );
   }

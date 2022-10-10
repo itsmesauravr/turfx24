@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:turfx24/app/screens/login_signup/widgets/eclipse_position.dart';
 import 'package:turfx24/app/screens/login_signup/widgets/signup_container.dart';
 import 'package:turfx24/app/utilities/colors/background_color.dart';
-import 'package:turfx24/app/utilities/images/login_signup_images.dart';
+import 'package:turfx24/app/utilities/images/images.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -15,62 +15,62 @@ class SignUpPage extends StatelessWidget {
       body: Stack(
         children: [
           const EclipsePosition(
-            image: LoginSignUpImages.topEclipse2,
+            image: Images.topEclipse2,
             right: 0,
             top: -25,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.topEclipse1,
+            image: Images.topEclipse1,
             top: -90,
             left: -20,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.topEclipse3,
+            image: Images.topEclipse3,
             top: 10,
             left: 140,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.topEclipse4,
+            image: Images.topEclipse4,
             top: 30,
             left: 80,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.bottomRectangle1,
+            image: Images.bottomRectangle1,
             right: 40,
             bottom: -40,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.bottomEclipse5,
+            image: Images.bottomEclipse5,
             right: 44,
             bottom: 10,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.bottomEclipse6,
+            image: Images.bottomEclipse6,
             right: 60,
             bottom: 40,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.bottomEclipse7,
+            image: Images.bottomEclipse7,
             right: 100,
             bottom: 40,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.footBallTop1,
+            image: Images.footBallTop1,
             top: 12,
             left: 140,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.footBallTop2,
+            image: Images.footBallTop2,
             top: 30,
             left: 80,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.footBallBottom3,
+            image: Images.footBallBottom3,
             right: 60,
             bottom: 39,
           ),
           const EclipsePosition(
-            image: LoginSignUpImages.footBallBottom4,
+            image: Images.footBallBottom4,
             right: 104,
             bottom: 45,
           ),
